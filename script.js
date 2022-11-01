@@ -16,27 +16,29 @@ btn.addEventListener('click',(e)=>{
 
     let v=emailValidation(email.value);
 
-    if(v.test==false){
-        console.log("false email is not correct");
-    }
-    else{
-        console.log("true email is correct");
-    }
+    v ? alert("email is correct") : alert("email is not correct");
 
-    //password validation
+    // password validation
+
+    let psd=passwordValidation(password.value);
+
+    psd ? alert("Password is correct") : alert(`Password Not Good 
+    Password contains 1UpperCase 1LowerCase 1SpecialCharacter and a Digit `);
+
 })
 
 function emailValidation(value){
-    console.log("value is"+ value);
-    let regEx=/^[A-Za-z]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,6}$/;
 
-    console.log(regEx);
-    if(value==regEx){ 
-        console.log("true");
-        return true;
-    }
-    else{ 
-        console.log("false");
-        return false;
-    }
+  const validateCheck= /^[A-Za-z0-9]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,6}$/;
+
+  return validateCheck.test(value) ? true :  false;
+
+}
+
+
+function passwordValidation(value){
+
+    const validatePassCheck=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    return validatePassCheck.test(value) ? true :  false;
 }

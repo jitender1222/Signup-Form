@@ -16,14 +16,22 @@ btn.addEventListener('click',(e)=>{
 
     let v=emailValidation(email.value);
 
-    v ? alert("email is correct") : alert("email is not correct");
+    v ? "" : alert("email is not correct");
 
     // password validation
 
     let psd=passwordValidation(password.value);
 
-    psd ? alert("Password is correct") : alert(`Password Not Good 
-    Password contains 1UpperCase 1LowerCase 1SpecialCharacter and a Digit `);
+    psd ? psd=password.value  : alert(`Password Not Good 
+    Password contains 1UpperCase 1LowerCase 1SpecialCharacter and a Digit `)
+    console.log("psd"+ psd);
+
+    //submit Password
+
+    let AgainPsd=passRepeat.value;
+
+    AgainPsd==psd ? alert("Form is ready to submit") : alert("Submit PassWord is not Correct")
+    console.log("Again"+AgainPsd);
 
 })
 
